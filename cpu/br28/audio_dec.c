@@ -212,6 +212,16 @@ extern struct audio_adc_hdl adc_hdl;
 
 struct esco_dec_hdl *esco_dec = NULL;
 
+////////////////////////////////////////////////////////////////fyf
+u8 get_esco_dec_state(void) {
+    if (esco_dec) {
+        return esco_dec->start;
+    } else {
+        return 0;
+    }
+}
+////////////////////////////////////////////////////////////////
+
 
 int lmp_private_get_esco_remain_buffer_size();
 int lmp_private_get_esco_data_len();
@@ -1165,6 +1175,7 @@ int esco_ul_stream_open(u32 sample_rate, u16 esco_len, u32 codec_type)
     }
 
     err = esco_enc_open(codec_type, esco_len);
+    //printf("play music:%d\n", err);
     if (err) {
         printf("audio_enc_open failed:%d", err);
         //goto __err3;

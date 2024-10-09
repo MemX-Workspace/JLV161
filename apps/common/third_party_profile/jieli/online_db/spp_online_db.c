@@ -1,4 +1,3 @@
-
 #include "app_config.h"
 #include "app_action.h"
 
@@ -29,6 +28,10 @@ extern void printf_buf(u8 *buf, u32 len);
 static struct db_online_api_t *db_api;
 static struct spp_operation_t *spp_api = NULL;
 static u8 spp_state;
+bool is_esco_enc_sent = 0;
+
+
+
 
 int online_spp_send_data(u8 *data, u16 len)
 {
@@ -61,14 +64,33 @@ static void online_spp_state_cbk(u8 state)
 #if (TCFG_ANC_TOOL_DEBUG_ONLINE && TCFG_AUDIO_ANC_ENABLE)
         app_anctool_spp_connect();
 #endif
+// //////////////////////////////////////////////////////////fyf
+//         if (get_esco_enc_state() == 0) {
+//             esco_enc_open(32, 60);
+//             printf("esco_enc_open by spp connect\n");
+//         } else {
+//             printf("esco_enc_open already\n");
+//         }
+//         is_esco_enc_sent = 1;
+// /////////////////////////////////////////////////////////
         break;
 
+
+
     case SPP_USER_ST_DISCONN:
+// ////////////////////////////////////////////////////fyf
+//         is_esco_enc_sent = 0;
+//         if (get_esco_dec_state() == 0) {
+//             esco_enc_close();
+//         }
+// ///////////////////////////////////////////////////
+
         log_info("SPP_USER_ST_DISCONN ~~~\n");
         db_api->exit();
 #if (TCFG_ANC_TOOL_DEBUG_ONLINE && TCFG_AUDIO_ANC_ENABLE)
         app_anctool_spp_disconnect();
 #endif
+
         break;
 
     default:

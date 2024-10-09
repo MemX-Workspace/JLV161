@@ -6,10 +6,10 @@
  *  板级配置选择
  */
 
-#define CONFIG_BOARD_JL701N_DEMO
+// #define CONFIG_BOARD_JL701N_DEMO
 // #define CONFIG_BOARD_JL701N_BTEMITTER
 // #define CONFIG_BOARD_JL701N_ANC
-// #define CONFIG_BOARD_JL7016G_HYBRID
+#define CONFIG_BOARD_JL7016G_HYBRID
 // #define CONFIG_BOARD_JL7018F_DEMO
 
 #include "media/audio_def.h"

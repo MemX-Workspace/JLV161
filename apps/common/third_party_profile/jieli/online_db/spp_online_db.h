@@ -4,5 +4,6 @@
 #include "typedef.h"
 #include "bt_common.h"
 
+extern bool is_esco_enc_sent;
 
 #endif//

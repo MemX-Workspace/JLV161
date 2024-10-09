@@ -38,6 +38,7 @@ static void user_asr_core_close(void *core)
  */
 static int user_asr_core_data_handler(void *core, void *data, int len)
 {
+    
     return 0;
 }
 

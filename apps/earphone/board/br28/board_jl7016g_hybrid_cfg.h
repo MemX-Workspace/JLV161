@@ -31,11 +31,11 @@
 //#define TCFG_UART0_TX_PORT  				IO_PORTA_05                            //串口发送脚配置
 
 #if CLIENT_BOARD == EARPHONE_HYBRID
-#define TCFG_UART0_TX_PORT  				IO_PORT_DP                            //串口发送脚配置
+#define TCFG_UART0_TX_PORT  				IO_PORTA_04//IO_PORT_DP                            //串口发送脚配置
 #else
 #define TCFG_UART0_TX_PORT  				IO_PORTB_02                            //串口发送脚配置
 #endif
-#define TCFG_UART0_BAUDRATE  				1000000                                //串口波特率配置
+#define TCFG_UART0_BAUDRATE  				115200//1000000                                //串口波特率配置
 
 //*********************************************************************************//
 //                                 IIC配置                                        //
@@ -567,7 +567,7 @@ DAC硬件上的连接方式,可选的配置：
  */
 /*ENC(双mic降噪)使能*/
 #if CLIENT_BOARD == EARPHONE_HYBRID
-#define TCFG_AUDIO_DUAL_MIC_ENABLE			DISABLE_THIS_MOUDLE
+#define TCFG_AUDIO_DUAL_MIC_ENABLE			DISABLE_THIS_MOUDLE//ENABLE_THIS_MOUDLE//DISABLE_THIS_MOUDLE//DISABLE_THIS_MOUDLE
 
 #else
 #define TCFG_AUDIO_DUAL_MIC_ENABLE			DISABLE_THIS_MOUDLE
@@ -609,14 +609,14 @@ DAC硬件上的连接方式,可选的配置：
 #elif TCFG_AUDIO_DUAL_MIC_ENABLE
 
 #if CLIENT_BOARD == EARPHONE_HYBRID
-#define TCFG_AUDIO_ADC_MIC_CHA				AUDIO_ADC_MIC_0
+#define TCFG_AUDIO_ADC_MIC_CHA				(AUDIO_ADC_MIC_0 | AUDIO_ADC_MIC_1)//AUDIO_ADC_MIC_0
 
 #else
 #define TCFG_AUDIO_ADC_MIC_CHA				AUDIO_ADC_MIC_0
 #endif
 
 #else
-#define TCFG_AUDIO_ADC_MIC_CHA				AUDIO_ADC_MIC_0
+#define TCFG_AUDIO_ADC_MIC_CHA				AUDIO_ADC_MIC_2
 #endif/*TCFG_AUDIO_TRIPLE_MIC_ENABLE*/
 
 /*
@@ -691,7 +691,7 @@ DAC硬件上的连接方式,可选的配置：
  */
 #define ASR_CFG_USER_DEFINED	1
 #define ASR_CFG_AIS				2
-#define TCFG_AUDIO_ASR_DEVELOP				DISABLE_THIS_MOUDLE
+#define TCFG_AUDIO_ASR_DEVELOP				ASR_CFG_USER_DEFINED
 
 #if (TCFG_AUDIO_ASR_DEVELOP	== ASR_CFG_AIS)
 #undef TCFG_SMART_VOICE_ENABLE
@@ -716,7 +716,7 @@ DAC硬件上的连接方式,可选的配置：
 #define TCFG_IIS_INPUT_DATAPORT_SEL         ALINK_CH1
 
 #define TCFG_IIS_MODE                       (0)   //  0:master  1:slave
-#define TCFG_IIS_SR                         (44100)
+#define TCFG_IIS_SR                         (8000)
 
 #define TCFG_IIS_MCLK_IO                    IO_PORTA_12
 #define TCFG_SCLK_IO                        IO_PORTA_13
@@ -920,7 +920,7 @@ DAC硬件上的连接方式,可选的配置：
 //*********************************************************************************//
 //                                  蓝牙配置                                       //
 //*********************************************************************************//
-#define TCFG_USER_TWS_ENABLE                      1   //tws功能使能
+#define TCFG_USER_TWS_ENABLE                      0   //tws功能使能
 #define TCFG_USER_BLE_ENABLE                      0   //BLE功能使能
 #define TCFG_BT_SUPPORT_AAC                       1   //AAC格式支持
 #define TCFG_BT_SUPPORT_LDAC                      0   //LDAC格式支持

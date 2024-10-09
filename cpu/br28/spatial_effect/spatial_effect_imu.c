@@ -690,7 +690,7 @@ void *space_motion_detect_open(void)
 {
     struct space_data_context *ctx = NULL;
     /*打开传感器电源*/
-    imu_sensor_power_ctl(TCFG_IMU_SENSOR_PWR_PORT, 1);
+    // imu_sensor_power_ctl(TCFG_IMU_SENSOR_PWR_PORT, 1);
     os_time_dly(1);
 #if TCFG_ICM42670P_ENABLE
     ctx = __icm42670p_space_motion_detect_open();

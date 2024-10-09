@@ -1109,6 +1109,8 @@ static u8 check_phone_income_idle(void)
     }
     return 1;
 }
+
+
 REGISTER_LP_TARGET(phone_incom_lp_target) = {
     .name       = "phone_check",
     .is_idle    = check_phone_income_idle,
@@ -1480,6 +1482,9 @@ static int bt_connction_status_event_handler(struct bt_event *bt)
         log_info("BT_STATUS_CONNECTED\n");
         earphone_change_pwr_mode(PWR_DCDC15, 3000);
         sys_auto_shut_down_disable();
+////////////////////////////////////////////////fyf
+    //    online_spp_init();
+///////////////////////////////////////////////
 #if TCFG_ADSP_UART_ENABLE
         ADSP_UART_Init();
 #endif

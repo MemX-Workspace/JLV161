@@ -57,6 +57,8 @@ void clock_remove_set(u32 type)
 
 #define  MIX_SRC_CLK (24)//src
 
+#define TCFG_CLOCK_PLL_240MHZ (1)
+
 const struct clock_type  clock_enum[] = {
 
     { BT_IDLE_CLOCK     	, (24), "	BT_IDLE_CLOCK      " },

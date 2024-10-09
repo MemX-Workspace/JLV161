@@ -211,7 +211,7 @@ struct adc_platform_data adc_data = {
 };
 #endif
 
-#if TCFG_SMART_VOICE_ENABLE
+#if 1//TCFG_SMART_VOICE_ENABLE
 const struct vad_mic_platform_data vad_mic_data = {
     .mic_data = { //
         .mic_mode = TCFG_AUDIO_MIC_MODE,
@@ -858,6 +858,11 @@ void board_init()
         gpio_set_die(uart0_data.rx_pin, 1);
     }
 #endif
+
+int lp_vad_mic_data_init(struct vad_mic_platform_data *mic_data);
+int user_platform_asr_open(void);
+lp_vad_mic_data_init(&vad_mic_data);
+user_platform_asr_open();
 
 #if TCFG_SMART_VOICE_ENABLE
 	int audio_smart_voice_detect_init(struct vad_mic_platform_data *mic_data);

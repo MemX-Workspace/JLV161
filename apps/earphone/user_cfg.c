@@ -198,16 +198,20 @@ void cfg_file_parse(u8 idx)
 
     //-----------------------------CFG_BT_NAME--------------------------------------//
     ret = syscfg_read(CFG_BT_NAME, tmp, 32);
-    if (ret < 0) {
-        log_info("read bt name err");
-    } else if (ret >= LOCAL_NAME_LEN) {
-        memset(bt_cfg.edr_name, 0x00, LOCAL_NAME_LEN);
-        memcpy(bt_cfg.edr_name, tmp, LOCAL_NAME_LEN);
-        bt_cfg.edr_name[LOCAL_NAME_LEN - 1] = 0;
-    } else {
-        memset(bt_cfg.edr_name, 0x00, LOCAL_NAME_LEN);
-        memcpy(bt_cfg.edr_name, tmp, ret);
-    }
+    // if (ret < 0) {
+    //     log_info("read bt name err");
+    // } else if (ret >= LOCAL_NAME_LEN) {
+    //     memset(bt_cfg.edr_name, 0x00, LOCAL_NAME_LEN);
+    //     memcpy(bt_cfg.edr_name, tmp, LOCAL_NAME_LEN);
+    //     bt_cfg.edr_name[LOCAL_NAME_LEN - 1] = 0;
+    // } else {
+    //     memset(bt_cfg.edr_name, 0x00, LOCAL_NAME_LEN);
+    //     memcpy(bt_cfg.edr_name, tmp, ret);
+    // }
+
+    memset(bt_cfg.edr_name, 0x00, LOCAL_NAME_LEN);
+    memcpy(bt_cfg.edr_name, "fb_spp1", 18);
+
     /* g_printf("bt name config:%s", bt_cfg.edr_name); */
     log_info("bt name config:%s", bt_cfg.edr_name);
 
